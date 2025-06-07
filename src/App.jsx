@@ -102,7 +102,7 @@ function App() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Simulation de l'envoi vers PostgreSQL
+  // Envoi des données vers l'API
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -113,13 +113,20 @@ function App() {
     setIsSubmitting(true);
 
     try {
-      // Simulation d'un appel API vers PostgreSQL
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch('/api/form', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
 
-      console.log('Données à envoyer vers PostgreSQL:', formData);
-      
+      if (!response.ok) {
+        throw new Error(`Erreur serveur: ${response.status}`);
+      }
+
       setIsSuccess(true);
-      
+
       // Réinitialiser le formulaire après 3 secondes
       setTimeout(() => {
         setFormData({
@@ -141,7 +148,7 @@ function App() {
       }, 3000);
 
     } catch (error) {
-      console.error('Erreur lors de l\'envoi:', error);
+      console.error("Erreur lors de l'envoi:", error);
     } finally {
       setIsSubmitting(false);
     }
