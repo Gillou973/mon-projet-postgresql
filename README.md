@@ -16,13 +16,29 @@ Make sure the following are installed before working with this project:
 
 ## Getting started
 
-Install dependencies and launch the project:
+Install dependencies first:
 
 ```bash
 npm install
-npm run dev      # start the Vite dev server
-npm run server   # start the Express backend
 ```
+
+### Running the project
+
+Start the backend API in one terminal:
+
+```bash
+npm run server
+```
+
+Then start the frontend in another terminal:
+
+```bash
+npm run dev
+```
+
+The Vite dev server proxies requests beginning with `/api` to
+`http://localhost:3001`, allowing the React application to communicate with
+the Express backend during development.
 
 ## Expanding the ESLint configuration
 
