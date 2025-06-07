@@ -10,3 +10,20 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Server Setup
+
+The project includes a small Express server located in the `server/` directory. Use `npm run server` to start it.
+
+### Database configuration
+
+The server expects PostgreSQL credentials to be provided via environment variables:
+
+- `PGHOST`
+- `PGPORT`
+- `PGUSER`
+- `PGPASSWORD`
+- `PGDATABASE`
+
+Create a `.env` file or export these variables in your shell before starting the server.
+
