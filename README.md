@@ -43,6 +43,7 @@ The server expects PostgreSQL credentials to be provided via environment variabl
 - `PGDATABASE`
 
 Create a `.env` file or export these variables in your shell before starting the server.
+The backend now uses `dotenv` to automatically load variables from a `.env` file during local development.
 
 ### Creating the contacts table
 
