@@ -44,3 +44,20 @@ The server expects PostgreSQL credentials to be provided via environment variabl
 
 Create a `.env` file or export these variables in your shell before starting the server.
 
+### Creating the contacts table
+
+Run this SQL once in your PostgreSQL database before launching the server:
+
+```sql
+CREATE TABLE contacts (
+  id SERIAL PRIMARY KEY,
+  nom TEXT,
+  prenom TEXT,
+  adresse TEXT,
+  email TEXT,
+  telephone TEXT,
+  date_creation TIMESTAMP
+);
+```
+
+
